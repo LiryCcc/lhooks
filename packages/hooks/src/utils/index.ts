@@ -1,1 +1,1 @@
-export { isDev, isFunction } from './is';
+export { isBoolean, isDev, isFunction } from './is';
