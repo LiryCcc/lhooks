@@ -1,0 +1,25 @@
+{
+  "type": "module",
+  "scripts": {
+    "build": "pnpm recursive run build",
+    "check-format": "prettier . --check --cache",
+    "format": "prettier . --write --cache",
+    "lint": "pnpm recursive run lint",
+    "prepare": "simple-git-hooks",
+    "rspack": "cross-env NODE_OPTIONS='--experimental-transform-types' rspack",
+    "test": "pnpm recursive run test",
+    "type-check": "pnpm recursive run type-check"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint && pnpm check-format && pnpm type-check",
+    "commit-msg": "pnpm commitlint --edit $1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "prettier": "^3.6.2",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "prettier-plugin-packagejson": "^2.5.18",
+    "simple-git-hooks": "^2.13.0"
+  }
+}
