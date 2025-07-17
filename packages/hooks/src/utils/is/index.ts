@@ -43,4 +43,6 @@ const isNaN = (value: unknown): value is number => {
   return Number.isNaN(value);
 };
 
-export { isBigint, isBoolean, isDev, isFunction, isNaN, isNumber, isObject, isString, isSymbol, isUndef };
+const isBrowser = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+
+export { isBigint, isBoolean, isBrowser, isDev, isFunction, isNaN, isNumber, isObject, isString, isSymbol, isUndef };
